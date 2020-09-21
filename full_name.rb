@@ -10,6 +10,11 @@ first_name = ask("Please enter your first name: ")
 middle_name = ask("Please enter your middle name: ")
 last_name = ask("Please enter your last name: ")
 
+if first_name == "" || middle_name == "" || last_name == ""
+	  puts "Enter enter all information"
+	  return 
+end
+
 full_name = Array.new
 
 full_name.unshift(first_name)

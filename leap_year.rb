@@ -5,7 +5,7 @@
 
 def ask(question)
   print question + " "
-  gets.chomp
+  gets.chomp.to_i
 end
 
 starting_year = ask("Please enter a starting year ")
@@ -13,38 +13,20 @@ ending_year = ask("Please enter an ending year ")
 
 leap_array = Array.new
 
-first_year = starting_year.to_i
-second_year = ending_year.to_i
-
-leap_array.unshift(first_year)
-leap_array.push(second_year)
-
-#help me how to print out all the leap years between a starting year and an ending year
-
-for x in first_year..second_year
-	if x+1 < second_year then
-		check_year = first_year + 1
-		leap_array << check_year
-	next
+if starting_year > ending_year
+	puts "Starting_year bigger than ending_year"
+	return	
+else	
+	for year in starting_year..ending_year
+		if year % 4 == 0 && year % 100 != 0 || year % 400 == 0
+			leap_array << year
+		end
 	end
-	puts leap_array.inspect
+	
 end
 
-#next_year = 0
+puts "There are #{leap_array.length} leap years between #{starting_year} and #{ending_year}."
 
-#while second_year < first_year && next_year != second_year
-#		leap_array << next_year + 4 
-		#leap_array << (first_year + 1) 
-#end
-
-
-puts leap_array.inspect
-
-leap_array.each do |year|
-  if year % 400 == 0
-  	 puts year.to_s + ' is leap year'
-    elsif year % 4==0 && year % 100 != 0 
-      puts year.to_s + ' is leap year'
-  else  puts year.to_s + ' is not leap year'
-  end
+for year in leap_array
+	puts year.to_s + " " + "is a leap year"
 end

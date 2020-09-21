@@ -15,11 +15,11 @@ while true do
 	new_word = ask("Please enter a positive integer: ")	
 	new_word = new_word.to_i
 	word_array << new_word
+		sum = 0
+			for j in 1..word_array[x]
+				sum += j
+			end
+		puts "The sum #{sum} of all the numbers from 1 to the #{new_word}."
 	x += 1
 	break if x > 2
 end
-	
-word_array.each do |num|
-  num += 1
-   puts "adding 1 to the integer is #{num}."
- end
